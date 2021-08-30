@@ -9,9 +9,14 @@
   </head>
   <body>
     <h1>Healthy Reminders Options</h1>
-    <label>
+    <!-- <label>
       Enable Dark Mode
       <button>Dark Mode</button>
+    </label> -->
+    <label>
+      Set Time in Minutes for Reminder (min: 1, max: 60)
+      <input id="time-option" type="number" min="1" max="60" value="25" />
+      <button id="save-btn">Save</button>
     </label>
   </body>
   <script src="options.js"></script>
