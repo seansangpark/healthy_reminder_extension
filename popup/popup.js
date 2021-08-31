@@ -3,7 +3,7 @@ let tasks = [];
 const updateTime = () => {
   chrome.storage.local.get(['timer', 'timeOption'], (res) => {
     const time = document.getElementById('time');
-    const minutes = `${timeOption - Math.ceil(res.timer / 60)}`.padStart(
+    const minutes = `${res.timeOption - Math.ceil(res.timer / 60)}`.padStart(
       2,
       '0'
     );
@@ -64,23 +64,40 @@ const saveTasks = () => {
 
 const renderTask = (taskNum) => {
   const taskRow = document.createElement('div');
+  taskRow.classList.add('input-group');
+  taskRow.classList.add('mb-3');
+
+  const taskRowRadio = document.createElement('div');
+  taskRowRadio.classList.add('input-group-text');
+
+  const radioInput = document.createElement('input');
+  radioInput.classList.add('form-check-input');
+  radioInput.classList.add('mt-0');
+  radioInput.type = 'checkbox';
+
+  taskRowRadio.appendChild(radioInput);
 
   const text = document.createElement('input');
   text.type = 'text';
   text.placeholder = 'Enter a task...';
   text.value = tasks[taskNum];
+  text.classList.add('form-control');
+
   text.addEventListener('change', () => {
     tasks[taskNum] = text.value;
     saveTasks();
   });
 
   const deleteBtn = document.createElement('input');
+  deleteBtn.classList.add('btn');
+  deleteBtn.classList.add('btn-outline-info');
   deleteBtn.type = 'button';
-  deleteBtn.value = 'Delete';
+  deleteBtn.value = 'x';
   deleteBtn.addEventListener('click', () => {
     deleteTask(taskNum);
   });
 
+  taskRow.appendChild(taskRowRadio);
   taskRow.appendChild(text);
   taskRow.appendChild(deleteBtn);
 

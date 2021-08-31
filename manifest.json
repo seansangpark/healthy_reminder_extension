@@ -17,5 +17,8 @@
   "background": {
     "service_worker": "background.js"
   },
-  "options_page": "options/options.html"
+  "options_page": "options/options.html",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://cdn.jsdelivr.net;"
+  }
 }
