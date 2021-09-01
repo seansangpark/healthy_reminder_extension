@@ -13,7 +13,9 @@ const updateTime = () => {
       seconds = `${60 - (res.timer % 60)}`.padStart(2, '0');
     }
     time.textContent = `${minutes}: ${seconds}`;
-    startTimerBtn.textContent = res.isRunning ? 'Pause Timer' : 'Start Timer';
+    startTimerBtn.textContent = res.isRunning
+      ? 'Pause Reminder'
+      : 'Start Reminder';
   });
 };
 
@@ -30,8 +32,8 @@ startTimerBtn.addEventListener('click', () => {
       },
       () => {
         startTimerBtn.textContent = !res.isRunning
-          ? 'Pause Timer'
-          : 'Start Timer';
+          ? 'Pause Reminder'
+          : 'Start Reminder';
       }
     );
   });
@@ -45,7 +47,7 @@ resetTimerBtn.addEventListener('click', () => {
       isRunning: false,
     },
     () => {
-      startTimerBtn.textContent = 'Start Timer';
+      startTimerBtn.textContent = 'Start Reminder';
     }
   );
 });
