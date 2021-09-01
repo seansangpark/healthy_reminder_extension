@@ -1,0 +1,13 @@
+body {
+  padding: 20px;
+  background-color: #ccf6c8;
+  font-family: 'Besley', serif;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+.label {
+  padding: 20px;
+}

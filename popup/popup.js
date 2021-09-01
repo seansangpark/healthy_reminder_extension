@@ -1,7 +1,8 @@
 let tasks = [];
+let isTimerRunning = false;
 
 const updateTime = () => {
-  chrome.storage.local.get(['timer', 'timeOption'], (res) => {
+  chrome.storage.local.get(['timer', 'timeOption', 'isRunning'], (res) => {
     const time = document.getElementById('time');
     const minutes = `${res.timeOption - Math.ceil(res.timer / 60)}`.padStart(
       2,
@@ -12,6 +13,7 @@ const updateTime = () => {
       seconds = `${60 - (res.timer % 60)}`.padStart(2, '0');
     }
     time.textContent = `${minutes}: ${seconds}`;
+    startTimerBtn.textContent = res.isRunning ? 'Pause Timer' : 'Start Timer';
   });
 };
 
@@ -20,6 +22,7 @@ setInterval(updateTime, 1000);
 
 const startTimerBtn = document.getElementById('start-timer-btn');
 startTimerBtn.addEventListener('click', () => {
+  isTimerRunning = true;
   chrome.storage.local.get(['isRunning'], (res) => {
     chrome.storage.local.set(
       {

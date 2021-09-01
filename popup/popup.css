@@ -1,10 +1,50 @@
 body {
   height: 400px;
-  width: 300px;
+  width: 400px;
+  padding: 20px;
+  background-color: #fafcc2;
+  font-family: 'Besley', serif;
+  font-weight: bold;
 }
 
 .header {
   display: flex;
   justify-content: center;
-  height: 60px;
+  height: 40px;
+  text-align: center;
+}
+
+.btn-container {
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.timer {
+  text-align: center;
+  font-size: 50px;
+  margin: 10px;
+  font-weight: normal;
+}
+
+.addbtn-container {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-success {
+  background-color: #ccf6c8;
+  color: black;
+}
+
+.btn-danger {
+  background-color: #f9c0c0;
+  color: black;
+}
+
+.btn-dark {
+  background-color: #f6d6ad;
+  color: black;
 }

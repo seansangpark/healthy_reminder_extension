@@ -14,7 +14,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
             icon: 'icon.png',
           });
           timer = 0;
-          isRunning = false;
+          isRunning = true;
         }
         chrome.storage.local.set({
           timer,
